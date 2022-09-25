@@ -1,16 +1,16 @@
-from tkinter import* #import for GUI interface
-
-def login():
-    username_enter = input("Please enter username: \n")
-    password_enter = input("Please enter password: \n")
-
+from tkinter import*
+import tkinter as tk #import for GUI interface
 
 def authent():
-    if (username_enter == "randomuser1") and (password_enter == "randompassword"):
+    username = str(username_enter.get())
+    password = str(password_enter.get())
+    if (username == "randomuser1") and (password == "randompassword"):
         print("Welcome back")
     else:
         print("Incorrect Username or Password")
-        
+
+def exit():
+    hello.destroy() #exits the program      
 
 hello = Tk()
 hello.geometry('400x300') #error: keep text together for dimension
@@ -18,76 +18,40 @@ hello.resizable(False, False)
 hello.title('Welcome')
 hello.config(bg="#FFDEAD")
 
+intro = tk.Label(hello, text="Welcome to The Login Page",font=("Arial", 12),fg="black",bg="#FFDEAD") #intro
+enteruser = tk.Label(hello, text="Enter Username",font=("Arial", 12),fg="black",bg="#FFDEAD") #label for entering username
+enterpass = tk.Label(hello, text="Enter Password",font=("Arial", 12),fg="black",bg="#FFDEAD") #label for entering username
 
-intro = Label(
-    hello, 
-    text = "Welcome to the Login Page",
-    font = ("Arial", 12),
-    fg = "black",
-    bg = "#FFDEAD"
-).place(
-    x = 95,
-    y = 0
-)
+empty_l1 = tk.Label(hello,bg="#FFDEAD") 
+empty_l2 = tk.Label(hello,bg="#FFDEAD") 
+empty_l3 = tk.Label(hello,bg="#FFDEAD") 
+empty_l4 = tk.Label(hello,bg="#FFDEAD") 
 
-enterusername = Label(
-    hello,
-    text = "Enter username: ",
-    font = ("Arial", 10),
-    fg = "black",
-    bg = "#FFDEAD"
-).place(
-    x = 10,
-    y = 60
-)
+username_enter = tk.Entry(hello,font=('Arial',10))
+password_enter = tk.Entry(hello,font=('Arial',10))
 
-enterpassword = Label(
-    hello,
-    text = "Enter password: ",
-    font = ("Arial", 10),
-    fg = "black",
-    bg = "#FFDEAD"
-).place(
-    x = 10,
-    y = 120
-)
+accbutton = tk.Button(hello,text="Enter",font=("Arial", 10),command=authent)
+exitbutton = tk.Button(hello,text="Exit Program",font=("Arial", 10),command=exit)
 
-username_enter = StringVar()  
-password_enter = StringVar()  
+intro.pack()
+empty_l1.pack()
+enteruser.pack()
+username_enter.pack()
+empty_l2.pack()
+enterpass.pack()
+password_enter.pack()
+empty_l3.pack()
+accbutton.pack()
+empty_l4.pack()
+exitbutton.pack()
 
-usernamebox = Entry(
-    hello,
-    textvariable = username_enter,
-    bg = "#E5E5E5",
-    width = 20,  
-    font = (20)
-    ).place(
-        x= 120,
-        y = 60
-    )
-
-passwordbox = Entry(
-    hello,
-    textvariable = password_enter,
-    bg = "#E5E5E5",
-    width = 20,  
-    font = (20)
-    ).place(
-        x= 120,
-        y = 120
-    )
-
-submit = Button(
-    hello,
-    command= authent,
-    text = "Enter",  
-    fg = "white",  
-    bg = "#A0522D",  
-    width = 15,  
-    font=20
-). place(
-    x = 100, 
-    y = 200
-)
 
 hello.mainloop() 
+
+
+
+
+
+
+
+
