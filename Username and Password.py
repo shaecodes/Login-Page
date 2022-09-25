@@ -1,6 +1,5 @@
 from tkinter import *
 import tkinter as tk
-from turtle import right #import for GUI interface
 import winsound as ws
 
 def authent():
