@@ -1,5 +1,7 @@
-from tkinter import*
-import tkinter as tk #import for GUI interface
+from tkinter import *
+import tkinter as tk
+from turtle import right #import for GUI interface
+import winsound as ws
 
 def authent():
     username = str(username_enter.get())
@@ -8,6 +10,7 @@ def authent():
         print("Welcome back")
     else:
         print("Incorrect Username or Password")
+        ws.PlaySound("sound.wav", ws.SND_ASYNC)
 
 def exit():
     hello.destroy() #exits the program      
@@ -18,7 +21,10 @@ hello.resizable(False, False)
 hello.title('Welcome')
 hello.config(bg="#FFDEAD")
 
-intro = tk.Label(hello, text="Welcome to The Login Page",font=("Arial", 12),fg="black",bg="#FFDEAD") #intro
+icon = tk.PhotoImage(file= 'lock.png')
+hello.iconphoto(True,icon)
+
+intro = tk.Label(hello, text="Welcome to The Login Page",font=("Arial", 12, 'bold'),fg="black",bg="#FFDEAD") #intro
 enteruser = tk.Label(hello, text="Enter Username",font=("Arial", 12),fg="black",bg="#FFDEAD") #label for entering username
 enterpass = tk.Label(hello, text="Enter Password",font=("Arial", 12),fg="black",bg="#FFDEAD") #label for entering username
 
@@ -30,8 +36,8 @@ empty_l4 = tk.Label(hello,bg="#FFDEAD")
 username_enter = tk.Entry(hello,font=('Arial',10))
 password_enter = tk.Entry(hello,font=('Arial',10))
 
-accbutton = tk.Button(hello,text="Enter",font=("Arial", 10),command=authent)
-exitbutton = tk.Button(hello,text="Exit Program",font=("Arial", 10),command=exit)
+accbutton = tk.Button(hello,text="Enter",font=("Arial", 10), relief= RAISED, bd=5, padx= 5, pady= 5, command=authent)
+exitbutton = tk.Button(hello,text="Exit Program",font=("Arial", 10), relief= RAISED, bd=5, command=exit)
 
 intro.pack()
 empty_l1.pack()
