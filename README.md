@@ -2,7 +2,7 @@
 This is a simple login page GUI application implemented in Python using the Tkinter library. It provides a graphical user interface for users to enter their username and password, and then click the "Enter" button to authenticate. If the entered username and password match the predefined values, it displays a "Welcome back" message. Otherwise, it shows an "Incorrect Username or Password" message and plays a sound effect using the winsound library.
 
 # Prerequisites
-Python 3.2 installed on your machine \n
+Python 3.2 installed on your machine 
 Tkinter library (usually included with Python)
 Winsound library (can be installed using pip)
 
